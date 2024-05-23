@@ -5,3 +5,1225 @@ git commit -m "first commit"
 git branch -M main
 git remote add origin https://github.com/TheRealPotatodan/Cataract.git
 git push -u origin main
+app.background='lightSkyBlue'
+
+ground = Group(Rect(0,280,400,20,fill=gradient('darkGreen','green','green','forestGreen','forestGreen',start='bottom')), Rect(0,300,400,100,fill=gradient('saddleBrown','saddleBrown','sienna',start='bottom')))
+ground2 = Group(Rect(0,280,400,20,fill=gradient('darkGreen','green','green','forestGreen','forestGreen',start='bottom')), Rect(0,300,400,100,fill=gradient('saddleBrown','saddleBrown','sienna',start='bottom')))
+ground3 = Group(Rect(0,280,400,20,fill=gradient('darkGreen','green','green','forestGreen','forestGreen',start='bottom')), Rect(0,300,400,100,fill=gradient('saddleBrown','saddleBrown','sienna',start='bottom')))
+
+#first/second screen custom variables
+
+door=Rect(123,230,34,50,fill='saddleBrown')
+house=Group(Polygon(80,280,80,160,200,160,200,280,fill='snow'),Polygon(60,174,140,112,220,174), door, Circle(150,255,4,fill='yellow'))
+house.visible=True
+
+sign = Group(Line(80,280,80,240),Rect(80,240,40,20),Line(120,240,120,280),Label('BIG PIT!!!',100,250,size=8,bold=True,fill='white'))
+sign.visible=False
+
+#inside the house
+
+enter=Label('(W)',140,220)
+enter.visible=False
+exit=Label('(W)',10,220)
+exit.visible=False
+exitDoor=Group(Rect(0,230,3,50,fill='saddleBrown'),Circle(7,255,4,fill='yellow'))
+exitDoor.visible=False
+
+Table=Group(Line(140,261,180,261,lineWidth=6,fill='darkGrey'),Line(142,261,141,280,fill='darkGrey',lineWidth=4),Line(178,261,179,280,fill='darkGrey',lineWidth=4))
+Table.visible=False
+
+bed=Group(Rect(341,260,50,10,fill='darkGreen'),Rect(391,260,5,10,fill='silver'),Rect(381,255,25,7,fill='lightBlue'),Line(339,256,339,280,lineWidth=4,fill='peru'),Line(341,272,396,272,lineWidth=4,fill='peru'),Line(398,245,398,280,lineWidth=4,fill='peru'))
+bed.visible=False
+
+couch=Group(Rect(45,231,50,30,fill='mediumOrchid',border='black',borderWidth=3),Polygon(24,260,29,260,29,250,69,250,69,260,70,260,70,250,110,250,110,260,115,260,115,275,24,275,fill='lightSlateGrey'),Rect(106,275,9,5),Rect(24,275,9,5))
+couch.visible=False
+
+familyPainting=Group(Line(246,218,264.5,207),Line(284,218,264.5,207),Rect(236,217,58,40,fill='white',border='olive'),Rect(238,247,54,8,fill='sienna'),Circle(264.5,209,3))
+familyPaintingMembers=Group(Rect(239,223,22,22,fill=gradient('darkSlateGrey','royalBlue',start='bottom'),border='black',borderWidth=1.5),Oval(246,231,4,8),Oval(254,231,4,8),
+    Line(262,255,262,252,lineWidth=3,fill=gradient('saddleBrown','darkSlateGrey','darkSlateGrey',start='bottom')),
+    Line(268,255,268,252,lineWidth=3,fill=gradient('saddleBrown','darkSlateGrey','darkSlateGrey',start='bottom')),
+
+    Rect(269,223,22,22,fill=gradient('darkSlateGrey','yellow',start='bottom'),border='black',borderWidth=1.5),Oval(276,231,4,8),Oval(284,231,4,8),
+    Line(276,255,276,245,lineWidth=3,fill=gradient('brown','saddleBrown','olive','olive','olive',start='bottom')),
+    Line(284,255,284,245,lineWidth=3,fill=gradient('brown','saddleBrown','olive','olive','olive',start='bottom')),
+    
+    Rect(257,236,16,16,fill=gradient('darkSlateGrey','turquoise',start='bottom'),border='black',borderWidth=1),Oval(262,242,3,6),Oval(268,242,3,6),
+    Line(246,255,246,245,lineWidth=3,fill=gradient('brown','saddleBrown','midnightBlue','midnightBlue','darkSlateGray',start='bottom')),
+    Line(254,255,254,245,lineWidth=3,fill=gradient('brown','saddleBrown','midnightBlue','midnightBlue','darkSlateGray',start='bottom')))
+familyPainting.visible=False
+familyPaintingMembers.visible=False
+
+#gravCubeModel-----------------------------------------------------------------------
+
+gravCubeUp = Group(Rect(0,0,44,44,fill='darkViolet',border='yellow'), 
+                        RegularPolygon(22,17,9,3,fill='yellow'), 
+                        RegularPolygon(22,27,9,3,fill='yellow'))
+gravCubeUp.visible=False
+gravCubeUp.width=30
+gravCubeUp.centerX=5000
+gravCubeUp.centerY=0
+
+gravCubeDown = Group(Rect(0,0,44,44,fill='darkViolet',border='yellow'), 
+                        RegularPolygon(22,17,9,3,fill='yellow'), 
+                        RegularPolygon(22,27,9,3,fill='yellow'))
+gravCubeDown.visible=False
+gravCubeDown.width=30
+gravCubeDown.centerX=5000
+gravCubeDown.centerY=0
+gravCubeDown.rotateAngle=180
+
+#Advice------------------------------------------------------------------------------
+
+advice=Group(Label('"A and D" / "Left and Right" to move. "W" / "Up" to jump.',230,60),Label('Hold "S" / "Down" to crouch : spam to float. Press "P" to pause. ',230,80), Label('That"s all, good luck...',230,100))
+advice_=Group(Label('The ground seems to give you power!',130,160), Label('For some reason though, its only in your legs...',140,170))
+advice1=Group(Label('They say bending ones legs can',300,200), Label('help them reach higher places...',300,210))
+advice2=Group(Label('Those yellow things look sticky! Maybe you',250,360),(Label('can reach those platforms up there with it.',250,370)))
+advice3=Group(Label('OUCH! Those red bars HURT when you touch them!!!',180,35,bold=True))
+advice4 = (Label('Hey, what are these cubes doing here?', 285,195,fill='white',bold=True))
+finalText=Group(Label('You Win!',200,130,size=30), Label('To Be Continued?',200,160,size=20))
+advice.visible=True
+advice_.visible=False
+advice1.visible=False
+advice2.visible=False
+advice3.visible=False
+advice4.visible=False
+finalText.visible=False
+
+insult=Group(Label('Nice Job Nerd.. XD',200,200))
+insult.visible=False
+
+#movableParts
+
+#platforms___________________________________________________________________________
+
+platform = Rect(5000,0,90,10,fill='darkSlateGrey')
+platform.visible=False
+platform2 = Rect(5000,0,90,10,fill='darkSlateGrey')
+platform2.visible=False
+platform3 = Rect(5000,0,90,10,fill='darkSlateGrey')
+platform3.visible=False
+platform4 = Rect(5000,0,90,10,fill='darkSlateGrey')
+platform4.visible=False
+platform5 = Rect(5000,0,90,10,fill='darkSlateGrey')
+platform5.visible=False
+platform6 = Rect(5000,0,90,10,fill='darkSlateGrey')
+platform6.visible=False
+platform7 = Rect(5000,0,90,10,fill='darkSlateGrey')
+platform7.visible=False
+platform8 = Rect(5000,0,90,10,fill='darkSlateGrey')
+platform8.visible=False
+platform9 = Rect(5000,0,90,10,fill='darkSlateGrey')
+platform9.visible=False
+platform10 = Rect(5000,0,90,10,fill='darkSlateGrey')
+platform10.visible=False
+
+#stickyPlatforms_____________________________________________________________________
+
+stickyPlatform = Rect(5000,0,90,10,fill=gradient('gold','goldenRod',start='top'))
+stickyPlatform.visible=False
+stickyPlatform2 = Rect(5000,0,90,10,fill=gradient('gold','goldenRod',start='top'))
+stickyPlatform2.visible=False
+stickyPlatform3 = Rect(5000,0,90,10,fill=gradient('gold','goldenRod',start='top'))
+stickyPlatform3.visible=False
+stickyPlatform4= Rect(5000,0,90,10,fill=gradient('gold','goldenRod',start='top'))
+stickyPlatform4.visible=False
+stickyPlatform5 = Rect(5000,0,90,10,fill=gradient('gold','goldenRod',start='top'))
+stickyPlatform5.visible=False
+
+#dangerBars_________________________________________________________________________
+
+dangerBar = Rect(5000,0,90,10,fill=gradient('red','fireBrick',start='top'))
+dangerBar.visible=False
+dangerBar2 = Rect(5000,0,90,10,fill=gradient('red','fireBrick',start='top'))
+dangerBar2.visible=False
+dangerBar3 = Rect(5000,0,90,10,fill=gradient('red','fireBrick',start='top'))
+dangerBar3.visible=False
+dangerBar4 = Rect(5000,0,90,10,fill=gradient('red','fireBrick',start='top'))
+dangerBar4.visible=False
+dangerBar5 = Rect(5000,0,90,10,fill=gradient('red','fireBrick',start='top'))
+dangerBar5.visible=False
+dangerBar6 = Rect(5000,0,90,10,fill=gradient('red','fireBrick',start='top'))
+dangerBar6.visible=False
+dangerBar7 = Rect(5000,0,90,10,fill=gradient('red','fireBrick',start='top'))
+dangerBar7.visible=False
+dangerBar8 = Rect(5000,0,90,10,fill=gradient('red','fireBrick',start='top'))
+dangerBar8.visible=False
+dangerBar9 = Rect(5000,0,90,10,fill=gradient('red','fireBrick',start='top'))
+dangerBar9.visible=False
+dangerBar10 = Rect(5000,0,90,10,fill=gradient('red','fireBrick',start='top'))
+dangerBar10.visible=False
+dangerBar11 = Rect(5000,0,90,10,fill=gradient('red','fireBrick',start='top'))
+dangerBar11.visible=False
+dangerBar12 = Rect(5000,0,90,10,fill=gradient('red','fireBrick',start='top'))
+dangerBar12.visible=False
+dangerBar13 = Rect(5000,0,90,10,fill=gradient('red','fireBrick',start='top'))
+dangerBar13.visible=False
+dangerBar14 = Rect(5000,0,90,10,fill=gradient('red','fireBrick',start='top'))
+dangerBar14.visible=False
+
+platforms=Group(platform,platform2,platform3,platform4,platform5)
+stickyPlatforms=Group(stickyPlatform,stickyPlatform2,stickyPlatform3,stickyPlatform4,stickyPlatform5)
+platforms.visible=False
+stickyPlatforms.visible=False
+
+#groundedLabel-----------------------------------------------------------------------
+
+grounded=Label('Stuck!',0,0,bold=True)
+grounded.visible=False
+ground2.centerX+=400
+ground3.centerX-=400
+
+#playerModel-------------------------------------------------------------------------
+
+playerHead = Group (Rect(200,200,25,25,fill=gradient('darkSlateGrey','turquoise',start='bottom'),border='black'),Oval(208,210,4,9),Oval(217,210,4,9))
+playerLeg1=Line(207,225,207,240,lineWidth=3,fill=gradient('brown','saddleBrown','darkSlateGrey','darkSlateGrey',start='bottom'))
+playerLeg2=Line(218,225,218,240,lineWidth=3,fill=gradient('brown','saddleBrown','darkSlateGrey','darkSlateGrey',start='bottom'))
+player = Group(playerHead,playerLeg1,playerLeg2)
+
+player.bottom=280
+player.jumpY=0
+player.move=0
+player.jumping=False
+player.sleeping=False
+
+#Pause screen------------------------------------------------------------------------
+
+paused=Group(Rect(0,0,400,400,fill='black',opacity=30),
+Rect(130,170,140,60,fill='black',border='green',borderWidth=6),
+Label('Paused',200,200,fill='white',size=25),
+Label('Press "P" or click lI to resume',200,250,size=15,fill='white',bold=True))
+paused.visible=False
+
+pauseButton = Group(Rect(360,20,24,24,fill='black',opacity=64),Label('II',372,32,fill='yellow',size=20))
+
+
+app.stepsPerSecond=60
+
+def onStep():
+    if (paused.visible==False):
+
+#Jumping Function--------------------------------------------------------------------
+
+        if (player.rotateAngle==180):
+            player.centerY-=player.jumpY
+        else:
+            player.centerY+=player.jumpY
+        
+        if (player.jumping):
+            player.jumpY+=.2
+
+#PlayerMovementOnObjects-------------------------------------------------------------
+            
+        if (player.hitsShape(ground)):
+            player.move=0
+            player.jumpY=0
+            player.jumping=False
+            
+        elif (player.hitsShape(ground2)):
+            player.move=0
+            player.jumpY=0
+            player.jumping=False
+            
+        elif (player.hitsShape(ground3)):
+            player.move=0
+            player.jumpY=0
+            player.jumping=False
+            
+        elif (player.hitsShape(platform)):
+            player.move=1
+            player.jumpY=0
+            player.jumping=False
+        
+        elif (player.hitsShape(platform2)):
+            player.move=1
+            player.jumpY=0
+            player.jumping=False
+            
+        elif (player.hitsShape(platform3)):
+            player.move=1
+            player.jumpY=0
+            player.jumping=False
+        
+        elif (player.hitsShape(platform4)):
+            player.move=1
+            player.jumpY=0
+            player.jumping=False
+            
+        elif (player.hitsShape(platform5)):
+            player.move=1
+            player.jumpY=0
+            player.jumping=False
+        
+        elif (player.hitsShape(platform6)):
+            player.move=1
+            player.jumpY=0
+            player.jumping=False
+        
+        elif (player.hitsShape(platform7)):
+            player.move=1
+            player.jumpY=0
+            player.jumping=False
+        
+        elif (player.hitsShape(platform8)):
+            player.move=1
+            player.jumpY=0
+            player.jumping=False
+        
+        elif (player.hitsShape(platform9)):
+            player.move=1
+            player.jumpY=0
+            player.jumping=False
+        
+        elif (player.hitsShape(platform10)):
+            player.move=1
+            player.jumpY=0
+            player.jumping=False
+        
+        elif (player.hitsShape(stickyPlatform)):
+            player.top=stickyPlatform.bottom
+            player.move=1
+            player.jumpY=0
+            player.jumping=False
+            
+        elif (player.hitsShape(stickyPlatform2)):
+            player.top=stickyPlatform2.bottom
+            player.move=1
+            player.jumpY=0
+            player.jumping=False
+            
+        elif (player.hitsShape(stickyPlatform3)):
+            player.top=stickyPlatform3.bottom
+            player.move=1
+            player.jumpY=0
+            player.jumping=False
+            
+        elif (player.hitsShape(stickyPlatform4)):
+            player.top=stickyPlatform4.bottom
+            player.move=1
+            player.jumpY=0
+            player.jumping=False
+    
+        elif (player.hitsShape(stickyPlatform5)):
+            player.top=stickyPlatform5.bottom
+            player.move=1
+            player.jumpY=0
+            player.jumping=False
+        
+        else:
+            player.jumpY+=.1 
+            
+#screen 4 dangerBar functions--------------------------------------------------------
+    
+        if (player.hitsShape(dangerBar) and (advice3.visible==True)):
+            player.centerX=12
+            player.centerY=84
+            
+        if (player.hitsShape(dangerBar2) and (advice3.visible==True)):
+            player.centerX=12
+            player.centerY=84
+            
+        if (player.hitsShape(dangerBar3) and (advice3.visible==True)):
+            player.centerX=12
+            player.centerY=84
+            
+        if (player.hitsShape(dangerBar4) and (advice3.visible==True)):
+            player.centerX=12
+            player.centerY=84
+            
+        if (player.hitsShape(dangerBar5) and (advice3.visible==True)):
+            player.centerX=12
+            player.centerY=84
+            
+        if (player.hitsShape(dangerBar6) and (advice3.visible==True)):
+            player.centerX=12
+            player.centerY=84
+            
+        if (player.hitsShape(dangerBar7) and (advice3.visible==True)):
+            player.centerX=12
+            player.centerY=84
+            
+        if (player.hitsShape(dangerBar8) and (advice3.visible==True)):
+            player.centerX=12
+            player.centerY=84
+        
+        if (player.hitsShape(dangerBar9) and (advice3.visible==True)):
+            player.centerX=12
+            player.centerY=84
+            
+        if (player.hitsShape(dangerBar10) and (advice3.visible==True)):
+            player.centerX=12
+            player.centerY=84
+            
+        if (player.hitsShape(dangerBar11) and (advice3.visible==True)):
+            player.centerX=12
+            player.centerY=84
+        
+        if (player.hitsShape(dangerBar12) and (advice3.visible==True)):
+            player.centerX=12
+            player.centerY=84
+        
+#screen 5 dangerBar functions--------------------------------------------------------
+    
+        if (player.hitsShape(dangerBar) and (advice4.visible==True)):
+            player.centerX=320
+            player.centerY=5
+            player.rotateAngle=0
+            
+        if (player.hitsShape(dangerBar2) and (advice4.visible==True)):
+            player.centerX=320
+            player.centerY=5
+            player.rotateAngle=0
+            
+        if (player.hitsShape(dangerBar3) and (advice4.visible==True)):
+            player.centerX=320
+            player.centerY=5
+            player.rotateAngle=0
+            
+        if (player.hitsShape(dangerBar4) and (advice4.visible==True)):
+            player.centerX=320
+            player.centerY=5
+            player.rotateAngle=0
+            
+        if (player.hitsShape(dangerBar5) and (advice4.visible==True)):
+            player.centerX=320
+            player.centerY=5
+            player.rotateAngle=0
+            
+        if (player.hitsShape(dangerBar6) and (advice4.visible==True)):
+            player.centerX=320
+            player.centerY=5
+            player.rotateAngle=0
+            
+        if (player.hitsShape(dangerBar7) and (advice4.visible==True)):
+            player.centerX=320
+            player.centerY=5
+            player.rotateAngle=0
+            
+        if (player.hitsShape(dangerBar8) and (advice4.visible==True)):
+            player.centerX=320
+            player.centerY=5
+            player.rotateAngle=0
+        
+        if (player.hitsShape(dangerBar9) and (advice4.visible==True)):
+            player.centerX=320
+            player.centerY=5
+            player.rotateAngle=0
+            
+        if (player.hitsShape(dangerBar10) and (advice4.visible==True)):
+            player.centerX=320
+            player.centerY=5
+            player.rotateAngle=0
+            
+        if (player.hitsShape(dangerBar11) and (advice4.visible==True)):
+            player.centerX=320
+            player.centerY=5
+            player.rotateAngle=0
+        
+        if (player.hitsShape(dangerBar12) and (advice4.visible==True)):
+            player.centerX=320
+            player.centerY=5
+            player.rotateAngle=0
+        
+        if (player.hitsShape(dangerBar13) and (advice4.visible==True)):
+            player.centerX=320
+            player.centerY=5
+            player.rotateAngle=0
+            
+        if (player.hitsShape(dangerBar14) and (advice4.visible==True)):
+            player.centerX=320
+            player.centerY=5
+            player.rotateAngle=0
+            
+#sleeping
+        if (player.sleeping==True):
+            player.rotateAngle=90
+            player.bottom=262
+            player.right=392
+            player.move=2
+            player.jumpY=0
+            player.jumping=False
+    
+#gravcube function-------------------------------------------------------------------
+            
+        if (gravCubeUp.containsShape(player)):
+            player.rotateAngle=180
+            player.centerY = player.centerY-20
+        
+        if (gravCubeDown.containsShape(player)):
+            player.rotateAngle=0
+            player.centerY = player.centerY+10
+    
+#Stuck! function---------------------------------------------------------------------
+    
+        if ((player.bottom>284) and (player.hitsShape(ground)==True)):
+            grounded.visible=True
+            grounded.value='Stuck!'
+            grounded.centerX=player.centerX
+            grounded.centerY=player.centerY-30
+            
+        elif ((player.bottom>284) and (player.hitsShape(ground2)==True)):
+            grounded.visible=True
+            grounded.value='Stuck!'
+            grounded.centerX=player.centerX
+            grounded.centerY=player.centerY-30
+        
+        elif ((player.bottom>284) and (player.hitsShape(ground3)==True)):
+            grounded.visible=True
+            grounded.value='Stuck!'
+            grounded.centerX=player.centerX
+            grounded.centerY=player.centerY-30
+    
+        elif ((player.bottom>ground.top+60) and (player.hitsShape(ground)==False) and (player.hitsShape(ground2)==False) and (player.hitsShape(ground3)==False)):
+            grounded.visible=True
+            grounded.value='AHHHHHHHHHHHHHHHHHHHHHHHHHH!'
+            grounded.centerX=player.centerX
+            grounded.centerY=player.centerY-30
+        else:
+            grounded.visible=False
+            
+#Screens-----------------------------------------------------------------------------
+            
+    #Screen 1
+    
+        if ((house.visible==True) and (player.centerX<0)):
+            player.centerX=0 
+            
+        if ((player.centerX>400) and (house.visible==True)):
+            player.centerX=0
+            ground.centerX=-40
+            ground2.centerX=540
+            sign.visible=True
+            advice_.visible=True
+            house.visible=False
+            advice.visible=False
+            
+    #Screen2    
+    
+        if ((sign.visible==True) and (player.centerX<0)):
+            sign.visible=False
+            advice_.visible=False
+            advice.visible=True
+            house.visible=True
+            ground.centerX+=200
+            player.centerX=400
+        
+        if ((sign.visible==True) and (player.centerY>650)):
+            player.centerX=13
+            player.centerY=255
+            if (grounded.visible==True):
+                player.centerY=228
+    
+        if ((sign.visible==True) and (player.centerX>400)):
+            sign.visible=False
+            advice_.visible=False
+            ground.centerX=200
+            ground2.centerX=800
+            player.centerX=0
+    
+            platform.visible=True
+            platform.centerX=80
+            platform.centerY=210
+            platform2.visible=True
+            platform2.centerX=240
+            platform2.centerY=110
+            platform3.centerX=45
+            platform3.centerY=40
+            platform3.visible=True
+            advice1.visible=True
+            
+    #screen3      
+    
+        if ((advice1.visible==True) and (player.centerX>400)):
+            player.centerX=400 
+            
+        if ((advice1.visible==True) and (player.centerX<0)):
+            player.centerX=400
+            ground.centerX=0
+            ground2.centerX=540
+            sign.visible=True
+            advice_.visible=True
+            platform.visible=False
+            platform.centerX=5000
+            platform.centerY=0
+            platform2.visible=False
+            platform2.centerX=5000
+            platform2.centerY=0
+            platform3.visible=False
+            platform3.centerX=5000
+            platform3.centerY=0
+            advice1.visible=False
+            
+        if ((advice1.visible==True) and (player.centerY<0)):
+            player.centerY=380
+            ground.centerY=500
+            ground2.centerY=500
+            ground3.centerY=500
+            advice1.visible=False
+            advice2.visible=True
+            platform.centerX=45
+            platform.centerY=400
+            platform2.centerX=360
+            platform2.centerY=270
+            platform3.centerX=20
+            platform3.centerY=120
+            stickyPlatform.visible=True
+            stickyPlatform.centerX=45
+            stickyPlatform.centerY=290
+            stickyPlatform.width=230
+            stickyPlatform.left=0
+            stickyPlatform2.visible=True
+            stickyPlatform2.centerX=250
+            stickyPlatform2.centerY=70
+            stickyPlatform2.width=140
+            stickyPlatform2.right=400
+            stickyPlatform3.visible=True
+            stickyPlatform3.centerX=200
+            stickyPlatform3.centerY=170
+            
+    #screen 4    
+    
+        if ((advice2.visible==True) and (player.centerY>400)):
+            player.centerY=0
+            platform.visible=True
+            platform.centerX=80
+            platform.centerY=210
+            platform2.visible=True
+            platform2.centerX=240
+            platform2.centerY=110
+            platform3.centerX=45
+            platform3.centerY=40
+            platform3.visible=True
+            advice1.visible=True
+            advice2.visible=False
+            ground.centerY=340
+            ground2.centerY=340
+            ground3.centerY=340
+            stickyPlatform.visible=False
+            stickyPlatform.centerY=0
+            stickyPlatform.centerX=5000
+            stickyPlatform2.visible=False
+            stickyPlatform2.centerY=0
+            stickyPlatform2.centerX=5000
+            stickyPlatform3.visible=False
+            stickyPlatform3.centerY=0
+            stickyPlatform3.centerX=5000
+            
+        if ((advice2.visible==True) and (player.centerX>400) and (player.centerY>100)):
+            player.centerX=400
+            
+        if ((advice2.visible==True) and (player.centerX>400) and (player.centerY<100)):
+            player.centerX=0
+            player.centerY=85
+            platform.centerY=353
+            platform.centerX=60
+            platform2.centerX=180
+            platform2.centerY=230 
+            platform3.centerX=360
+            platform3.centerY=230
+            platform4.visible=True
+            platform4.centerX=190
+            platform4.centerY=353
+            platform5.visible=True
+            platform5.centerX=0
+            platform5.centerY=353
+            stickyPlatform.centerX=275
+            stickyPlatform.centerY=70
+            stickyPlatform.width=90        
+            stickyPlatform2.centerX=0
+            stickyPlatform2.left=0
+            stickyPlatform2.width=70
+            stickyPlatform3.centerX=27
+            stickyPlatform3.centerY=230
+            dangerBar.centerX=115
+            dangerBar.centerY=67
+            dangerBar.visible=True
+            dangerBar2.visible=True        
+            dangerBar2.centerX=280
+            dangerBar2.centerY=80
+            dangerBar2.width=180
+            dangerBar2.rotateAngle=20
+            dangerBar2.left=239
+            dangerBar3.visible=True
+            dangerBar3.centerX=40
+            dangerBar3.centerY=141
+            dangerBar3.width=300
+            dangerBar3.left=0
+            dangerBar4.visible=True
+            dangerBar4.centerX=270
+            dangerBar4.centerY=236
+            dangerBar5.visible=True        
+            dangerBar5.centerY=0
+            dangerBar5.height=70
+            dangerBar5.width=400
+            dangerBar5.left=0
+            dangerBar5.bottom=65
+            dangerBar6.visible=True
+            dangerBar6.centerX=117
+            dangerBar6.centerY=226
+            dangerBar6.width=63
+            dangerBar6.height=13
+            dangerBar6.left=72
+            dangerBar6.bottom=234
+            dangerBar7.visible=True
+            dangerBar7.rotateAngle=90
+            dangerBar7.centerX=125
+            dangerBar7.height=100
+            dangerBar7.bottom=400        
+            dangerBar8.visible=True
+            dangerBar8.rotateAngle=90
+            dangerBar8.centerY=275
+            dangerBar8.centerX=125
+            dangerBar8.height=30
+            dangerBar8.top=234
+            dangerBar9.visible=True
+            dangerBar9.width=55
+            dangerBar9.height=52        
+            dangerBar9.left=235
+            dangerBar9.bottom=400
+            dangerBar10.visible=True
+            dangerBar10.rotateAngle=90
+            dangerBar10.width=50
+            dangerBar10.top=235
+            dangerBar10.height=170
+            dangerBar10.right=400
+            
+            advice2.visible=False
+            advice3.visible=True
+            advice3.fill='White'
+            advice3.toFront()
+            pauseButton.toFront()
+            
+    #Screen 5
+            
+        if ((advice3.visible==True) and (player.centerX<0) and (player.centerY>120)):
+            player.centerX=0
+            
+        if ((advice3.visible==True) and (player.centerX>400)):
+            player.centerX=400
+            
+        if ((advice3.visible==True) and (player.centerX<0) and (player.centerY<120)):
+            player.centerX=400
+            player.centerY=85
+            ground.centerY=500
+            ground2.centerY=500
+            ground3.centerY=500
+            platform.centerX=45
+            platform.centerY=400
+            platform2.centerX=360
+            platform2.centerY=270
+            platform3.centerX=20
+            platform3.centerY=120
+            platform4.visible=False
+            platform4.centerX=5000
+            platform4.centerY=0
+            platform5.visible=False
+            platform5.centerX=5000
+            platform5.centerY=0
+            stickyPlatform.visible=True
+            stickyPlatform.centerX=45
+            stickyPlatform.centerY=290
+            stickyPlatform.width=230
+            stickyPlatform.left=0
+            stickyPlatform2.visible=True
+            stickyPlatform2.centerX=250
+            stickyPlatform2.centerY=70
+            stickyPlatform2.width=140
+            stickyPlatform2.right=400
+            stickyPlatform3.visible=True
+            stickyPlatform3.centerX=200
+            stickyPlatform3.centerY=170
+            dangerBar.centerX=5000
+            dangerBar.centerY=0
+            dangerBar.visible=False
+            dangerBar2.centerX=5000
+            dangerBar2.centerY=0
+            dangerBar2.visible=False
+            dangerBar3.visible=False
+            dangerBar3.centerX=5000
+            dangerBar3.centerY=0
+            dangerBar4.visible=False
+            dangerBar4.centerX=5000
+            dangerBar4.centerY=0
+            dangerBar5.visible=False        
+            dangerBar5.centerX=5000
+            dangerBar5.centerY=0
+            dangerBar6.visible=False
+            dangerBar6.centerX=5000
+            dangerBar6.centerY=0
+            dangerBar7.visible=False
+            dangerBar7.rotateAngle=0
+            dangerBar7.centerX=5000
+            dangerBar7.centerY=0
+            dangerBar8.visible=False
+            dangerBar8.rotateAngle=0
+            dangerBar8.centerY=0
+            dangerBar8.centerX=5000
+            dangerBar9.visible=False
+            dangerBar9.centerX=5000
+            dangerBar9.centerY=0
+            dangerBar10.visible=False
+            dangerBar10.rotateAngle=0
+            dangerBar10.centerX=5000
+            dangerBar10.centerY=0
+            advice2.visible=True
+            advice3.visible=False
+            
+    #screen 6
+    
+        if ((advice3.visible==True) and (player.centerY>400) and (player.centerX>280)):
+            app.background='gray'
+            advice4.visible=True
+            gravCubeUp.visible=True
+            gravCubeUp.centerX=210
+            gravCubeUp.centerY=117
+            gravCubeDown.visible=True
+            gravCubeDown.centerX=330
+            gravCubeDown.centerY=163
+            
+            player.centerX=320
+            player.centerY=5
+            
+            platform.centerX=305
+            platform.centerY=140
+            platform2.centerX=220
+            platform2.centerY=140
+            platform3.centerX=45
+            platform3.centerY=70
+            platform4.left=0
+            platform4.width=135
+            platform4.centerY=140
+            platform5.centerX=355
+            platform5.centerY=210
+            platform6.visible=True
+            platform6.left=0
+            platform6.centerY=0
+            platform6.width=235
+            platform7.visible=True
+            platform7.centerY=220
+            platform7.right=175
+            platform8.visible=True
+            platform8.centerX=5
+            platform8.centerY=315
+            platform9.visible=True
+            platform9.centerX=140
+            platform9.centerY=295
+            platform9.width=50
+            platform10.visible=True
+            platform10.centerX=249
+            platform10.centerY=316
+            platform10.width=50
+            
+            stickyPlatform.visible=False
+            stickyPlatform.centerX=5000
+            stickyPlatform.centerY=0
+            stickyPlatform2.visible=False
+            stickyPlatform2.centerX=5000
+            stickyPlatform2.centerY=0
+            stickyPlatform3.visible=False
+            stickyPlatform3.centerX=5000
+            stickyPlatform3.centerY=0
+            
+            dangerBar.visible=True      
+            dangerBar.centerX=180
+            dangerBar.centerY=100
+            dangerBar.rotateAngle=90
+            dangerBar3.visible=True        
+            dangerBar3.centerY=70
+            dangerBar3.width=90
+            dangerBar3.left=90
+            dangerBar4.visible=True
+            dangerBar4.centerY=210
+            dangerBar4.right=225
+            dangerBar4.width=40
+            dangerBar5.left=175
+            dangerBar5.top=55
+            dangerBar5.width=10
+            dangerBar5.height=240
+            dangerBar6.centerX=341
+            dangerBar6.centerY=221
+            dangerBar6.width=90
+            dangerBar6.height=10
+            dangerBar7.centerY=210
+            dangerBar7.rotateAngle=0
+            dangerBar7.width=105
+            dangerBar7.left=0      
+            dangerBar8.rotateAngle=0        
+            dangerBar8.top=285
+            dangerBar8.width=200
+            dangerBar8.left=90
+            dangerBar9.visible=True
+            dangerBar9.width=55
+            dangerBar9.height=62       
+            dangerBar9.left=235
+            dangerBar9.top=0
+            dangerBar10.visible=True
+            dangerBar10.rotateAngle=90
+            dangerBar10.width=50
+            dangerBar10.height=145      
+            dangerBar10.top=0
+            dangerBar10.right=400
+            dangerBar11.visible=True
+            dangerBar11.centerY=130
+            dangerBar11.right=155
+            dangerBar11.width=110
+            dangerBar12.visible=True
+            dangerBar12.left=0
+            dangerBar12.centerY=130
+            dangerBar12.width=30
+            dangerBar13.visible=True
+            dangerBar13.rotateAngle=90
+            dangerBar13.height=42
+            dangerBar13.centerX=180
+            dangerBar13.top=295
+            dangerBar14.visible=True
+            dangerBar14.rotateAngle=90
+            dangerBar14.centerX=180
+            dangerBar14.height=27
+            dangerBar14.bottom=400  
+            
+            dangerBar2.visible=False
+            dangerBar2.centerX=5000
+            dangerBar2.centerY=0
+            advice3.visible=False
+            
+        if ((player.rotateAngle==180) and (advice4.visible==True)):
+            advice4.value='Wha-, WHYS EVERYTHING UPSIDE DOWN!?'
+            advice4.rotateAngle=180
+            advice4.centerX=270
+            if (player.hitsShape(platform2) and (player.centerY<platform2.centerY)):
+                player.centerY-=10
+                player.move=2
+                
+            if (player.hitsShape(platform) and (player.centerY<platform.centerY)):
+                player.centerY-=10
+                player.move=2
+                
+        if ((player.hitsShape(gravCubeDown)) and (advice4.rotateAngle==180) and (player.rotateAngle==0)):
+                advice4.value='Phew, I was getting a little dizzy there...'
+                advice4.rotateAngle=0
+                advice4.centerX=283
+                
+        if ((player.top<0) and (advice4.visible==True)):
+            player.centerY=20
+        
+        if ((player.centerX<0) and (advice4.visible==True)):
+            player.centerX=0
+        
+        if ((player.centerY>400) and (advice4.visible==True)):
+            player.centerY=380
+            
+        if ((player.centerX>400) and (player.centerY>205)):
+            player.centerX=400
+        
+    #screen 7
+    
+        if ((player.centerX>400) and (advice4.visible==True) and (player.centerY<205)):
+            finalText.visible=True
+            advice4.visible=False
+            app.background=gradient('cornflowerBlue','lightSkyBlue',rgb(200,250,240),'moccasin','lightSalmon','coral','tomato','orangeRed',start='top')
+            player.centerX=52
+            player.bottom=215
+            ground.height=185
+            ground.top=215
+            
+            gravCubeUp.visible=False
+            gravCubeUp.centerX=5000
+            gravCubeUp.centerY=0
+            gravCubeDown.visible=False
+            gravCubeDown.centerX=5000
+            gravCubeDown.centerY=0
+            
+            Polygon(0,0,10,0,60,160,0,160,fill='grey')
+            Rect(0,160,60,55,fill=gradient('black','grey','lightSkyBLue',start='top-left'),opacity=13)
+            
+            platform.visible=False
+            platform.centerX=5000
+            platform.centerY=0
+            platform2.visible=False
+            platform2.centerX=5000
+            platform2.centerY=0
+            platform3.visible=False
+            platform3.centerX=5000
+            platform3.centerY=0
+            platform4.visible=False
+            platform4.left=0
+            platform4.width=90
+            platform4.centerY=5000
+            platform5.visible=False
+            platform5.centerX=0
+            platform5.centerY=0
+            platform6.visible=False
+            platform6.left=0
+            platform6.centerY=0
+            platform6.width=235
+            platform7.visible=False
+            platform7.centerY=220
+            platform7.right=175
+            platform8.visible=False
+            platform8.centerX=5000
+            platform8.centerY=0
+            platform9.visible=False
+            platform9.centerX=5000
+            platform9.centerY=0
+            platform9.width=50
+            platform10.visible=False
+            platform10.centerX=5000
+            platform10.centerY=0
+            platform10.width=50
+            
+            stickyPlatform.visible=False
+            stickyPlatform.centerX=5000
+            stickyPlatform.centerY=0
+            stickyPlatform2.visible=False
+            stickyPlatform2.centerX=5000
+            stickyPlatform2.centerY=0
+            stickyPlatform3.visible=False
+            stickyPlatform3.centerX=5000
+            stickyPlatform3.centerY=0
+            
+            dangerBar.visible=False      
+            dangerBar.centerX=5000
+            dangerBar.centerY=0
+            dangerBar.rotateAngle=90
+            dangerBar3.visible=False        
+            dangerBar3.centerY=0
+            dangerBar3.width=90
+            dangerBar3.left=90
+            dangerBar4.visible=False
+            dangerBar4.centerY=0
+            dangerBar4.right=225
+            dangerBar4.width=40
+            dangerBar5.visible=False
+            dangerBar5.left=175
+            dangerBar5.top=55
+            dangerBar5.width=10
+            dangerBar5.height=240
+            dangerBar6.visible=False
+            dangerBar6.centerX=5000
+            dangerBar6.centerY=0
+            dangerBar6.width=90
+            dangerBar6.height=10
+            dangerBar7.visible=False
+            dangerBar7.centerY=0
+            dangerBar7.rotateAngle=0
+            dangerBar7.width=105
+            dangerBar7.left=0
+            dangerBar8.visible=False
+            dangerBar8.rotateAngle=0        
+            dangerBar8.top=285
+            dangerBar8.width=200
+            dangerBar8.left=90
+            dangerBar9.visible=False
+            dangerBar9.width=55
+            dangerBar9.height=62       
+            dangerBar9.left=235
+            dangerBar9.top=0
+            dangerBar10.visible=False
+            dangerBar10.rotateAngle=90
+            dangerBar10.width=50
+            dangerBar10.height=145      
+            dangerBar10.top=0
+            dangerBar10.right=400
+            dangerBar11.visible=False
+            dangerBar11.centerY=0
+            dangerBar11.right=155
+            dangerBar11.width=110
+            dangerBar12.visible=False
+            dangerBar12.left=0
+            dangerBar12.centerY=0
+            dangerBar12.width=30
+            dangerBar13.visible=False
+            dangerBar13.rotateAngle=90
+            dangerBar13.height=42
+            dangerBar13.centerX=180
+            dangerBar13.top=295
+            dangerBar14.visible=False
+            dangerBar14.rotateAngle=90
+            dangerBar14.centerX=180
+            dangerBar14.height=27
+            dangerBar14.bottom=400  
+            app.stop()
+                
+    #empty screen/troll screen    
+    
+        if ((advice2.visible==True) and (player.centerX<0)):
+            player.centerX=270
+            player.centerY=150
+            ground.centerX=600
+            ground.centerY=0
+            ground2.centerY=0
+            ground3.centerY=0
+            ground2.centerX=600
+            ground3.centerX=600
+            platform.visible=False
+            platform.centerX=5000
+            platform.centerY=0
+            platform2.visible=False
+            platform2.centerX=5000
+            platform2.centerY=0
+            platform3.visible=False
+            platform3.centerX=5000
+            platform3.centerY=0
+            stickyPlatform.visible=False
+            stickyPlatform.centerX=5000
+            stickyPlatform2.visible=False
+            stickyPlatform2.centerX=5000
+            stickyPlatform3.visible=False
+            stickyPlatform3.centerX=5000
+            advice2.visible=False
+            insult.visible=True
+            
+        if ((insult.visible==True) and (player.centerY>400)):
+            player.centerY=0
+            player.centerX=270
+            ground.centerX=0
+            ground2.centerX=540
+            ground.centerY=340
+            ground2.centerY=340
+            ground3.centerY=340
+            sign.visible=True
+            advice_.visible=True
+            insult.visible=False
+            
+    #InsideTheHouse
+        if (player.hitsShape(door) and (door.visible==True)):
+            enter.visible=True
+        else:
+            enter.visible=False
+            
+            if (app.background=='white'):
+                if (grounded.visible==True):
+                    player.bottom=280
+                if (player.centerX<=16):
+                    player.centerX=16
+                    exit.visible=True
+                    exitDoor.visible=True
+                else:
+                    exit.visible=False
+                
+                if (player.centerX>=387):
+                    player.centerX=386
+        
+#Player Movement and Actions---------------------------------------------------------
+
+def onKeyHold(keys):
+    if (('left' in keys) or ('a' in keys)):
+        if ((grounded.visible==False) and (paused.visible==False)):
+            if (player.rotateAngle==180):
+                player.centerX+=3
+            else:
+                player.centerX-=3
+            
+    if (('right' in keys) or ('d' in keys)):
+        if ((grounded.visible==False) and (paused.visible==False)):
+            if (player.rotateAngle==180):
+                player.centerX-=3
+            else:
+                player.centerX+=3
+                
+    if (('down' in keys) or ('s' in keys)):
+        if (player.sleeping==False):
+            if ((player.hitsShape(stickyPlatforms)==False) and (paused.visible==False)):
+                if (player.rotateAngle==180):
+                    playerLeg1.rotateAngle=270
+                    playerLeg1.centerY=player.centerY-12
+                    playerLeg2.rotateAngle=90
+                    playerLeg2.centerY=player.centerY-12
+                else:
+                    playerLeg1.rotateAngle=90
+                    playerLeg1.centerY=player.centerY+12
+                    playerLeg2.rotateAngle=-90
+                    playerLeg2.centerY=player.centerY+12
+
+def onKeyRelease(keys):
+    if (('down' in keys) or ('s' in keys)):
+        if (player.sleeping==False):
+            if ((player.hitsShape(stickyPlatforms)==False) and (paused.visible==False)):
+                if (player.rotateAngle==180):
+                    player.centerY+=10       
+                    playerLeg1.rotateAngle=-180
+                    playerLeg1.bottom=playerHead.top
+                    playerLeg2.rotateAngle=180
+                    playerLeg2.bottom=playerHead.top
+                    
+                else:    
+                    player.centerY-=10       
+                    playerLeg1.rotateAngle=0
+                    playerLeg1.top=playerHead.bottom
+                    playerLeg2.rotateAngle=0
+                    playerLeg2.top=playerHead.bottom
+        
+def onKeyPress(key):
+    if ((key == 'up') or (key == 'w') and (key == 'space')==False):
+        if (enter.visible==False):
+            if (exit.visible==False):
+                if ((player.hitsShape(stickyPlatforms)==False) and (paused.visible==False)):
+                    if (player.move<2):
+                        player.jumping=True
+                        player.jumpY= -5
+                        player.move+=1
+        
+        if (enter.visible==True) and (house.visible==True):
+            player.centerX=16
+            player.centerY=260
+            ground3.fill='saddleBrown'
+            ground3.centerX=200
+            ground2.centerX=600
+            ground.centerX=-600
+            house.visible=False
+            advice.visible=False
+            Table.visible=True
+            couch.visible=True
+            bed.visible=True
+            exitDoor.visible=True
+            familyPainting.visible=True
+            familyPaintingMembers.visible=True
+            app.background='white'
+        
+        if (exit.visible==True) and (house.visible==False):
+            player.centerX=140
+            player.centerY=260
+            house.visible=True
+            advice.visible=True
+            exitDoor.visible=False
+            exit.visible=False
+            Table.visible=False
+            couch.visible=False
+            bed.visible=False
+            familyPainting.visible=False
+            familyPaintingMembers.visible=False
+            ground.centerX=200
+            ground3.centerX=-600
+            app.background='lightSkyBlue'
+    
+    if (key=='s'):
+        if (bed.visible==True):
+            if (player.hitsShape(bed)):
+                if (player.sleeping==False):
+                    player.sleeping=True
+                else:
+                    player.sleeping=False
+                    player.rotateAngle=0
+                
+    if (key=='p'):
+        if (paused.visible==False):
+            paused.visible=True
+        else:
+            paused.visible=False
+                
+def onMousePress(mouseX,mouseY):
+    if (pauseButton.contains(mouseX,mouseY)==True):
+        if (paused.visible==False):
+            paused.visible=True
+        else:
+            paused.visible=False
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
