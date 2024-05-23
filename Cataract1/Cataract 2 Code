@@ -1,0 +1,1320 @@
+app.background=gradient('cornflowerBlue','lightSkyBlue',rgb(200,250,240),'moccasin','lightSalmon','coral','tomato','orangeRed',start='top')
+
+#screen variables--------------------------------------------------------------------
+
+wall=Rect(90,0,310,400,fill='grey')
+wall.visible=False
+wall2=Polygon(88,45,211,45,226,65,243,56,248,74,268,69,265,88,275,400,88,400,fill='dimGrey')
+wall2.visible=False
+wall3=Rect(0,0,400,400,fill='grey')
+wall3.visible=False
+
+house=Group(Polygon(80,280,80,160,200,160,200,280),Polygon(60,174,140,112,220,174,fill='snow'), Rect(123,230,34,50,fill='saddleBrown'), Circle(150,255,4,fill='yellow'))
+house.visible=False
+
+caveExit = Group(Polygon(0,0,10,0,60,160,0,160,fill='grey'),
+        Rect(0,160,60,55,fill=gradient('black','grey','lightSkyBLue',start='top-left'),opacity=13))
+        
+buildingExit=Polygon(400,390,400,320,320,390,fill=gradient('white','gray',start='right'),opacity=50)
+buildingExit.visible=False
+
+ground = Group(Rect(0,280,400,20,fill=gradient('darkGreen','green','green','forestGreen','forestGreen',start='bottom')), Rect(0,300,400,100,fill=gradient('saddleBrown','saddleBrown','sienna',start='bottom')))
+ground2 = Group(Rect(0,280,400,20,fill=gradient('darkGreen','green','green','forestGreen','forestGreen',start='bottom')), Rect(0,300,400,100,fill=gradient('saddleBrown','saddleBrown','sienna',start='bottom')))
+ground3 = Group(Rect(0,280,400,20,fill=gradient('darkGreen','green','green','forestGreen','forestGreen',start='bottom')), Rect(0,300,400,100,fill=gradient('saddleBrown','saddleBrown','sienna',start='bottom')))
+
+sign = Group(Line(80,280,80,240),Rect(80,240,40,20),Line(120,240,120,280),Label('BIG PIT!!!',100,250,size=8,bold=True,fill='white'))
+sign.visible=True
+sign.centerX=0
+sign.centerY=5000
+
+family=Group(Rect(160,200,25,25,fill=gradient('darkSlateGrey','royalBlue',start='bottom'),border='black'),Oval(168,210,4,9),Oval(177,210,4,9),
+Line(167,225,167,240,lineWidth=3,fill=gradient('brown','saddleBrown','darkSlateGrey','darkSlateGrey',start='bottom')),
+Line(178,225,178,240,lineWidth=3,fill=gradient('brown','saddleBrown','darkSlateGrey','darkSlateGrey',start='bottom')),
+Rect(200,200,25,25,fill=gradient('darkSlateGrey','yellow',start='bottom'),border='black'),Oval(208,210,4,9),Oval(217,210,4,9),
+Line(207,225,207,240,lineWidth=3,fill=gradient('brown','saddleBrown','olive','olive',start='bottom')), Line(218,225,218,240,lineWidth=3,fill=gradient('brown','saddleBrown','olive','olive',start='bottom')))
+
+family.visible=False
+
+
+#trampolines-------------------------------------------------------------------------
+
+rims=Oval(160,378,85,5,opacity=1)
+trampoline1=Group(Line(112,376,110,400),Line(208,376,210,400),Oval(160,375,100,19,fill='black',border='darkCyan',borderWidth=4),Oval(160,373.5,89,12),rims)
+trampoline1.visible=False
+trampoline1.centerX=1
+trampoline1.centerY=5000
+
+rims2=Oval(160,378,85,5,opacity=1)
+trampoline2=Group(Line(112,376,110,400),Line(208,376,210,400),Oval(160,375,100,19,fill='black',border='darkKhaki',borderWidth=4),Oval(160,373.5,89,12),rims2)
+trampoline2.visible=False
+trampoline2.centerX=1
+trampoline2.centerY=5000
+
+rims3=Oval(160,378,85,5,opacity=1)
+trampoline3=Group(Line(112,376,110,400),Line(208,376,210,400),Oval(160,375,100,19,fill='black',border='seaGreen',borderWidth=4),Oval(160,373.5,89,12),rims3)
+trampoline3.visible=False
+trampoline3.centerX=1
+trampoline3.centerY=5000
+
+rims4=Oval(160,378,85,5,opacity=1)
+trampoline4=Group(Line(112,376,110,400),Line(208,376,210,400),Oval(160,375,100,19,fill='black',border='deepPink',borderWidth=4),Oval(160,373.5,89,12),rims4)
+trampoline4.visible=False
+trampoline4.centerX=1
+trampoline4.centerY=5000
+
+rim=Group(rims,rims2,rims3,rims4)
+trampoline=Group(trampoline1,trampoline2,trampoline3,trampoline4)
+
+arrowRight=(Line(260,180,320,180,arrowEnd=True,lineWidth=3))
+arrowRight.visible=True
+
+#cannons-----------------------------------------------------------------------------
+
+box=Rect(0,0,40,40,fill='crimson',border='White')
+timer = Arc(20,20,20,20,0,230,fill='white')
+cannon=Group(box,timer)
+cannonBalls = Group()
+niceCannonBalls=Group()
+cannon.visible=False
+cannonBalls.counter=5
+
+box2=Rect(0,0,40,40,fill='crimson',border='White')
+timer2 = Arc(20,20,20,20,0,230,fill='white')
+cannon2=Group(box2,timer2)
+cannonBalls2 = Group()
+nCannonBalls2=Group()
+cannon2.visible=False
+cannonBalls2.counter=5
+
+box3=Rect(0,0,40,40,fill='crimson',border='White')
+timer3 = Arc(20,20,20,20,0,230,fill='white')
+cannon3=Group(box3,timer3)
+cannonBalls3 = Group()
+nCannonBalls3=Group()
+cannon3.visible=False
+cannonBalls3.counter=5
+
+#advice------------------------------------------------------------------------------
+
+advice=Group(Label('"A and D" / "Left and Right" to move. "W" / "Up" to jump (2).',230,60),Label('"S" / "Down" to crouch : spam to increase height. "P" to pause.',221,90),Label('If you havent played the first game, good luck trying this...',230,120))
+advice_=Group(Label('Those RED balls look scary! I dont',125,90), Label('think touching them would be a good idea.',125,100))
+advice3=Group(Label('Is that a trampoline?!',300,200), Label('Jump on it to go higher!',300,220))
+advice2=Label('What is that behind the gate?',94,330)
+advice2_=Label('Press "e" to unlock it and find out!',94,350)
+advice1=Label('What a curious little box.',75,5,bold=True,fill='white',size=10)
+advice4 = (Label('Hey, what are these cubes doing here?', 285,195,fill='white',bold=True))
+finalText=Group(Label('The End...?',174,170,size=30,font='cinzel',bold=True,fill='white'))
+hiddenAdvice=Group (Label('try holding crouch',43,240,size=10), Label('when you fall',40,260), Label('down this shaft',43,280))
+advice.visible=True
+advice_.visible=False
+advice1.visible=False
+advice2.visible=False
+advice2_.visible=False
+advice3.visible=False
+advice4.visible=False
+finalText.visible=False
+hiddenAdvice.counter=0
+hiddenAdvice.visible=False
+
+#platforms---------------------------------------------------------------------------
+
+platform = Rect(5000,0,90,10,fill='darkSlateGrey')
+platform.visible=False
+platform2 = Rect(5000,0,90,10,fill='darkSlateGrey')
+platform2.visible=False
+platform3 = Rect(5000,0,90,10,fill='darkSlateGrey')
+platform3.visible=False
+platform4 = Rect(5000,0,90,10,fill='darkSlateGrey')
+platform4.visible=False
+platform5 = Rect(5000,0,90,10,fill='darkSlateGrey')
+platform5.visible=False
+platform6 = Rect(5000,0,90,10,fill='darkSlateGrey')
+platform6.visible=False
+platform7 = Rect(5000,0,90,10,fill='darkSlateGrey')
+platform7.visible=False
+platform8 = Rect(5000,0,90,10,fill='darkSlateGrey')
+platform8.visible=False
+platform9 = Rect(5000,0,90,10,fill='darkSlateGrey')
+platform9.visible=False
+
+#dangerBars--------------------------------------------------------------------------
+
+dangerBar = Rect(5000,0,90,10,fill=gradient('red','fireBrick',start='top'))
+dangerBar.visible=False
+dangerBar2 = Rect(5000,0,90,10,fill=gradient('red','fireBrick',start='top'))
+dangerBar2.visible=False
+dangerBar3 = Rect(5000,0,90,10,fill=gradient('red','fireBrick',start='top'))
+dangerBar3.visible=False
+dangerBar4 = Rect(5000,0,90,10,fill=gradient('red','fireBrick',start='top'))
+dangerBar4.visible=False
+dangerBar5 = Rect(5000,0,90,10,fill=gradient('red','fireBrick',start='top'))
+dangerBar5.visible=False
+dangerBar6 = Rect(5000,0,90,10,fill=gradient('red','fireBrick',start='top'))
+dangerBar6.visible=False
+dangerBar7 = Rect(5000,0,90,10,fill=gradient('red','fireBrick',start='top'))
+dangerBar7.visible=False
+dangerBar8 = Rect(5000,0,90,10,fill=gradient('red','fireBrick',start='top'))
+dangerBar8.visible=False
+dangerBar9 = Rect(5000,0,90,10,fill=gradient('red','fireBrick',start='top'))
+dangerBar9.visible=False
+
+#platform groups---------------------------------------------------------------------
+
+platforms=Group(platform,platform2,platform3,platform4,platform5,platform6,platform7,platform8,platform9)
+dangerBars=Group(dangerBar,dangerBar2,dangerBar3,dangerBar4,dangerBar5,dangerBar6,dangerBar7,dangerBar8,dangerBar9)
+platforms.visible=False
+
+#'Stuck!' variable-------------------------------------------------------------------
+
+grounded=Label('Stuck!',0,0,bold=True)
+grounded.visible=False
+ground2.centerX+=400
+ground3.centerX-=400
+
+#player model-------------------------------------------------------------------------
+
+playerSpeedTrail = Group()
+
+playerHead = Group (Rect(200,200,25,25,fill=gradient('darkSlateGrey','turquoise',start='bottom'),border='black'),Oval(208,210,4,9),Oval(217,210,4,9))
+playerLeg1=Line(207,225,207,240,lineWidth=3,fill=gradient('brown','saddleBrown','darkSlateGrey','darkSlateGrey',start='bottom'))
+playerLeg2=Line(218,225,218,240,lineWidth=3,fill=gradient('brown','saddleBrown','darkSlateGrey','darkSlateGrey',start='bottom'))
+player = Group(playerHead,playerLeg1,playerLeg2)
+
+player.bottom=280
+player.jumpY=0
+player.move=0
+player.jumping=False
+player.boost=False
+player.boostCounter=50
+player.speed=False
+player.speedTrailCounter=70
+
+#gate--------------------------------------------------------------------------------
+
+gate=Group(Rect(55,265,10,50,fill='darkSeaGreen'),Rect(54,283,12,12,fill='yellow'),Circle(60,287,3),RegularPolygon(60,292,4,3))
+gate.visible=False
+gate.password=''
+
+#shrink/grow device------------------------------------------------------------------
+
+shrinker=Group(Rect(108,171,28,44,fill='hotPink',border='teal',borderWidth=5),Circle(122,193,10,fill=None,border=gradient('mediumSpringGreen','mediumAquamarine','seaGreen',start='left'),borderWidth=3),Label('>',123,195,size=32,fill='white'))
+shrinker.visible=False
+shrinker.centerX=0
+shrinker.centerY=5000
+
+grower=Group(Rect(108,171,28,44,fill='teal',border='hotPink',borderWidth=5),Circle(122,193,10,fill=gradient('lightPink','pink','paleVioletRed',start='right')),Label('<',121,195,size=32))
+grower.visible=False
+grower.centerX=0
+grower.centerY=5000
+player.shrunk=False
+
+#speed Booster-----------------------------------------------------------------------
+
+speedBoost=Group(Polygon(200,200,210,200,213,201,220,211,230,211,260,211,260,215,200,215,fill='orangeRed'),RegularPolygon(207,208,6,3,rotateAngle=92,fill='coral',border='black',borderWidth=1))
+speedBoost2=Group(Polygon(200,200,210,200,213,201,220,211,230,211,260,211,260,215,200,215,fill='orangeRed'),RegularPolygon(207,208,6,3,rotateAngle=92,fill='coral',border='black',borderWidth=1))
+
+speedBooster=Group(speedBoost,speedBoost2)
+
+speedBooster.visible=False
+speedBooster.centerX=0
+speedBooster.centerY=5000
+
+#Start-------------------------------------------------------------------------------
+
+player.centerX=120
+player.centerY=195
+ground.height=185
+ground.top=215
+
+#pause screen------------------------------------------------------------------------
+
+paused=Group(Rect(0,0,400,400,fill='black',opacity=30),
+Rect(130,170,140,60,fill='black',border='green',borderWidth=6),
+Label('Paused',200,200,fill='white',size=25),
+Label('Press "p" or click lI to resume',200,250,size=15,fill='white',bold=True))
+paused.visible=False
+
+pauseButton = Group(Rect(360,20,24,24,fill='black',opacity=64),Label('II',372,32,fill='yellow',size=20))
+
+nightime=Rect(0,0,400,400,fill='black',opacity=30)
+nightime.visible=False
+
+moon=Circle(295,50,20,fill='white')
+moon.visible=False
+
+platforms.counter=0
+
+app.stepsPerSecond=60
+
+def onStep():
+        
+    if (paused.visible==False):
+        
+#Player Jump Functions----------------------------------------------------------------
+
+        if (player.rotateAngle==180):
+            player.centerY-=player.jumpY
+        else:
+            player.centerY+=player.jumpY
+        
+        if (player.jumping):
+            if (player.shrunk==False):
+                player.jumpY+=.2
+            else:
+                player.jumpY+=.4
+            
+        if (player.hitsShape(ground)):
+            player.move=0
+            player.jumpY=0
+            player.jumping=False
+            player.boost=False
+            
+        elif (player.hitsShape(ground2)):
+            player.move=0
+            player.jumpY=0
+            player.jumping=False
+            player.boost=False
+            
+        elif (player.hitsShape(ground3)):
+            player.move=0
+            player.jumpY=0
+            player.jumping=False
+            player.boost=False
+            
+        elif (player.hitsShape(platform)):
+            player.move=1
+            player.jumpY=0
+            player.jumping=False
+            player.boost=False
+        
+        elif (player.hitsShape(platform2)):
+            player.move=1
+            player.jumpY=0
+            player.jumping=False
+            player.boost=False
+            
+        elif (player.hitsShape(platform3)):
+            player.move=1
+            player.jumpY=0
+            player.jumping=False
+            player.boost=False
+        
+        elif (player.hitsShape(platform4)):
+            player.move=1
+            player.jumpY=0
+            player.jumping=False
+            player.boost=False
+            
+        elif (player.hitsShape(platform5)):
+            player.move=1
+            player.jumpY=0
+            player.jumping=False
+            player.boost=False
+        
+        elif (player.hitsShape(platform6)):
+            player.move=1
+            player.jumpY=0
+            player.jumping=False
+            player.boost=False
+        
+        elif (player.hitsShape(platform7)):
+            player.move=1
+            player.jumpY=0
+            player.jumping=False
+            player.boost=False
+        
+        elif (player.hitsShape(platform8)):
+            player.move=1
+            player.jumpY=0
+            player.jumping=False
+            player.boost=False
+        
+        elif (player.hitsShape(platform9)):
+            player.move=1
+            player.jumpY=0
+            player.jumping=False
+            player.boost=False
+
+        else:
+            player.jumpY+=.1 
+            
+        if (advice2.visible==True):
+            if (player.hitsShape(platform6)):
+                player.centerY+=10
+                player.jumping=True
+            
+#Danger Bar Functions----------------------------------------------------------------
+    
+        if (player.hitsShape(dangerBar) and (advice3.visible==True)):
+            player.centerX=12
+            player.centerY=198
+            player.boost=False
+            hiddenAdvice.counter+=1
+        
+        if (hiddenAdvice.counter>=32):
+            hiddenAdvice.visible=True
+            
+        if (player.hitsShape(dangerBar2) and (advice3.visible==True)):
+            player.centerX=12
+            player.centerY=198
+            player.boost=False
+            
+        if (player.hitsShape(dangerBar3) and (advice3.visible==True)):
+            player.centerX=12
+            player.centerY=198
+            player.boost=False
+            
+        if (player.hitsShape(dangerBar4) and (advice3.visible==True)):
+            player.centerX=12
+            player.centerY=198
+            player.boost=False
+            
+        if (player.hitsShape(dangerBar5) and (advice3.visible==True)):
+            player.centerX=12
+            player.centerY=198
+            player.boost=False
+            
+        if (player.hitsShape(dangerBar6) and (advice3.visible==True)):
+            player.centerX=12
+            player.centerY=198
+            player.boost=False
+            
+#different screen--------------------------------------------------------------------
+
+        if (player.hitsShape(dangerBar) and (advice2.visible==True)):
+            player.centerX=15
+            player.centerY=270
+            
+        if (player.hitsShape(dangerBar2) and (advice2.visible==True)):
+            player.centerX=15
+            player.centerY=270
+            
+        if (player.hitsShape(dangerBar3) and (advice2.visible==True)):
+            player.centerX=15
+            player.centerY=270
+            
+        if (player.hitsShape(dangerBar4) and (advice2.visible==True)):
+            player.centerX=15
+            player.centerY=270
+            
+        if (player.hitsShape(dangerBar5) and (advice2.visible==True)):
+            player.centerX=15
+            player.centerY=270
+            
+        if (player.hitsShape(dangerBar6) and (advice2.visible==True)):
+            player.centerX=15
+            player.centerY=270
+            
+#dangerbar screen 3------------------------------------------------------------------     
+
+        if (player.hitsShape(dangerBar) and (advice1.visible==True)):
+            player.centerX=12
+            player.centerY=63
+            if (player.shrunk==True):
+                player.height=40
+                player.width=25
+                player.shrunk=False
+            
+        if (player.hitsShape(dangerBar2) and (advice1.visible==True)):
+            player.centerX=12
+            player.centerY=63
+            if (player.shrunk==True):
+                player.height=40
+                player.width=25
+                player.shrunk=False
+            
+        if (player.hitsShape(dangerBar3) and (advice1.visible==True)):
+            player.centerX=12
+            player.centerY=63
+            if (player.shrunk==True):
+                player.height=40
+                player.width=25
+                player.shrunk=False
+            
+        if (player.hitsShape(dangerBar4) and (advice1.visible==True)):
+            player.centerX=12
+            player.centerY=63
+            if (player.shrunk==True):
+                player.height=40
+                player.width=25
+                player.shrunk=False
+            
+        if (player.hitsShape(dangerBar5) and (advice1.visible==True)):
+            player.centerX=12
+            player.centerY=63
+            if (player.shrunk==True):
+                player.height=40
+                player.width=25
+                player.shrunk=False
+            
+        if (player.hitsShape(dangerBar6) and (advice1.visible==True)):
+            player.centerX=12
+            player.centerY=63
+            player.boost=False
+            if (player.shrunk==True):
+                player.height=40
+                player.width=25
+                player.shrunk=False
+            
+        if (player.hitsShape(dangerBar7) and (advice1.visible==True)):
+            player.centerX=12
+            player.centerY=63
+            if (player.shrunk==True):
+                player.height=40
+                player.width=25
+                player.shrunk=False
+            
+        if (player.hitsShape(dangerBar8) and (advice1.visible==True)):
+            player.centerX=12
+            player.centerY=63
+            player.boost=False
+            if (player.shrunk==True):
+                player.height=40
+                player.width=25
+                player.shrunk=False
+            
+        if (player.hitsShape(dangerBar9) and (advice1.visible==True)):
+            player.centerX=12
+            player.centerY=63
+            if (player.shrunk==True):
+                player.height=40
+                player.width=25
+                player.shrunk=False
+
+            
+#Shrinker/Grower Function------------------------------------------------------------
+            
+        if (shrinker.containsShape(player)==True):
+            player.height=20
+            player.width=13
+            player.top=shrinker.top+3
+        if (player.hitsShape(shrinker)):
+            player.bottom=shrinker.bottom-1
+            player.boost=False
+            playerLeg1.top=playerHead.bottom
+            playerLeg2.top=playerHead.bottom
+            playerLeg1.rotateAngle=0
+            playerLeg2.rotateAngle=0 
+            
+        if (player.height==20):
+            player.shrunk=True
+        if (player.height==40):
+            player.shrunk=False
+            
+        if (grower.containsShape(player)==True):
+            player.shurnk=False
+            player.height=40
+            player.width=25
+            player.bottom=grower.bottom-1
+            player.boost=False
+            
+        if (player.hitsShape(grower)):
+            player.top=grower.top+3
+            player.boost=False
+            playerLeg1.top=playerHead.bottom
+            playerLeg2.top=playerHead.bottom
+            playerLeg1.rotateAngle=0
+            playerLeg2.rotateAngle=0
+            if (player.shrunk==True):
+                player.bottom=grower.bottom-1
+        
+#Cannonball spawner------------------------------------------------------------------
+            
+        if (cannon.visible==True):
+            if (cannonBalls.counter>0):
+                timer.sweepAngle+=3
+                if (timer.sweepAngle>=358):
+                    timer.sweepAngle=1
+                    cannonBalls.counter-=1
+                    for i in range(1):
+                        if (cannonBalls.counter<3):
+                            cannonBalls.add(
+                                Circle(cannon.centerX,cannon.centerY,15,fill=gradient('black','crimson')))
+                        if (cannonBalls.counter>3):
+                            cannonBalls.add(
+                                Circle(cannon.centerX,cannon.centerY,15,fill=gradient('black','crimson')))
+                    if (cannonBalls.counter==3):
+                        for i in range(1):
+                            niceCannonBalls.add(
+                                Circle(cannon.centerX,cannon.centerY,15,fill=gradient('black','darkCyan')))
+            for balls in cannonBalls.children:
+                balls.centerX-=10
+                if (balls.centerX<0):
+                    cannonBalls.remove(balls)
+            for nballs in niceCannonBalls.children:
+                nballs.centerX-=10
+                if (nballs.centerX<0):
+                    niceCannonBalls.remove(nballs)
+                    
+        if (cannon2.visible==True):
+            if (cannonBalls2.counter>0):
+                timer2.sweepAngle+=3
+                if (timer2.sweepAngle>=358):
+                    timer2.sweepAngle=1
+                    cannonBalls2.counter-=1
+                    for i in range(1):
+                        if (cannonBalls2.counter<4):
+                            cannonBalls2.add(
+                                Circle(cannon2.centerX,cannon2.centerY,15,fill=gradient('black','crimson')))
+                    if (cannonBalls2.counter==4):
+                        for i in range(1):
+                            nCannonBalls2.add(
+                                Circle(cannon2.centerX,cannon2.centerY,15,fill=gradient('black','darkCyan')))
+            for balls2 in cannonBalls2.children:
+                balls2.centerX-=10
+                if (balls2.centerX<0):
+                    cannonBalls2.remove(balls2)
+            for nballs in nCannonBalls2.children:
+                nballs.centerX-=10
+                if (nballs.centerX<10):
+                    nCannonBalls2.remove(nballs)
+                    
+        if (cannon3.visible==True):
+            if (cannonBalls3.counter>0):
+                timer3.sweepAngle+=3
+                if (timer3.sweepAngle>=358):
+                    timer3.sweepAngle=1
+                    cannonBalls3.counter-=1
+                    for i in range(1):
+                        if (cannonBalls3.counter<2):
+                            cannonBalls3.add(
+                                Circle(cannon3.centerX,cannon3.centerY,15,fill=gradient('black','crimson')))
+                        if (cannonBalls3.counter>2):
+                            cannonBalls3.add(
+                                Circle(cannon3.centerX,cannon3.centerY,15,fill=gradient('black','crimson')))
+                    if (cannonBalls3.counter==2):
+                        for i in range(1):
+                            nCannonBalls3.add(
+                                Circle(cannon3.centerX,cannon3.centerY,15,fill=gradient('black','darkCyan')))
+            for balls3 in cannonBalls3.children:
+                balls3.centerX-=10
+                if (balls3.centerX<0):
+                    cannonBalls3.remove(balls3)
+            for nballs in nCannonBalls3.children:
+                nballs.centerX-=10
+                if (nballs.centerX<0):
+                    nCannonBalls3.remove(nballs)
+                    
+        if (platforms.counter>=33):
+            platform.visible=True
+            platform.centerX=30
+            platform.centerY=150
+            
+        if (platforms.counter>40):
+            platform.visible=False
+            platform.centerX=0
+            platform.centerY=5000
+        
+        if (sign.visible==True):
+            platform.visible=False
+            platforms.counter=0
+            platform.centerX=0
+            platform.centerY=5000
+        
+        if (sign.visible==False):
+            platforms.counter+=.1
+            
+    #cannon balls Hit Function-------------------------------------------------------
+    
+        if (player.hitsShape(cannonBalls) or (player.hitsShape(cannonBalls2) or (player.hitsShape(cannonBalls3) and (advice_.visible==True)))):
+            caveExit.visible=True
+            caveExit.centerX=30
+            caveExit.centerY=107.5
+            player.centerX=120
+            player.centerY=195
+            timer.sweepAngle=230
+            timer2.sweepAngle=230
+            timer3.sweepAngle=230
+    
+            cannon.visible=False
+            cannonBalls.visible=False
+            niceCannonBalls.visible=False
+            if (cannonBalls.children):
+                cannonBalls.clear(balls)
+            if (niceCannonBalls.children):
+                niceCannonBalls.clear(nballs)
+            
+            cannon2.visible=False
+            cannonBalls2.visible=False
+            nCannonBalls2.visible=False
+            if (cannonBalls2.children):
+                cannonBalls2.clear(balls2)
+            if (nCannonBalls2.children):
+                nCannonBalls2.clear(nballs)
+    
+            cannon3.visible=False
+            cannonBalls3.visible=False
+            nCannonBalls3.visible=False
+            if (cannonBalls3.children):
+                cannonBalls3.clear(balls3)
+            if (nCannonBalls3.children):
+                nCannonBalls3.clear(nballs)
+                
+            sign.visible=True
+            platforms.counter=0
+            
+            advice.visible=True
+            advice_.visible=False
+    
+            cannonBalls.counter=5
+            cannon.centerX=0
+            cannon.centerY=5000
+            
+            cannonBalls2.counter=5
+            cannon2.centerX=0
+            cannon2.centerY=5000
+    
+            cannonBalls3.counter=5
+            cannon3.centerX=0
+            cannon3.centerY=5000
+            
+#trampoline Function-----------------------------------------------------------------
+            
+        if (player.hitsShape(rims)):
+            player.boost=True
+            player.move=1
+            player.jumpY=0
+            playerLeg1.top=playerHead.bottom
+            playerLeg2.top=playerHead.bottom
+            playerLeg1.rotateAngle=0
+            playerLeg2.rotateAngle=0
+            player.boostCounter=50
+            
+        if (player.hitsShape(rims2)):
+            player.boost=True
+            player.move=1
+            player.jumpY=0
+            playerLeg1.top=playerHead.bottom
+            playerLeg2.top=playerHead.bottom
+            playerLeg1.rotateAngle=0
+            playerLeg2.rotateAngle=0
+            player.boostCounter=50
+            
+        if (player.hitsShape(rims3)):
+            player.boost=True
+            player.move=1
+            player.jumpY=0
+            playerLeg1.top=playerHead.bottom
+            playerLeg2.top=playerHead.bottom
+            playerLeg1.rotateAngle=0
+            playerLeg2.rotateAngle=0
+            player.boostCounter=50
+            
+        if (player.hitsShape(rims4)):
+            player.boost=True
+            player.move=1
+            player.jumpY=0
+            playerLeg1.top=playerHead.bottom
+            playerLeg2.top=playerHead.bottom
+            playerLeg1.rotateAngle=0
+            playerLeg2.rotateAngle=0
+            player.boostCounter=50
+        
+        r=randrange(100,226)
+        h=randrange(120,226)
+        l=randrange(162,226)
+        
+        if (player.boost==True):
+            playerLeg1.fill=gradient(rgb(r,0,0),rgb(l,34,34),rgb(h,69,19),start='bottom')
+            playerLeg2.fill=gradient(rgb(r,0,0),rgb(l,34,34),rgb(h,69,19),start='bottom')
+            player.centerY+=player.jumpY-3
+            player.boostCounter-=1
+        
+        if (player.boost==False):
+            playerLeg1.fill=gradient('brown','saddleBrown','darkSlateGrey','darkSlateGrey',start='bottom')
+            playerLeg2.fill=gradient('brown','saddleBrown','darkSlateGrey','darkSlateGrey',start='bottom')
+        
+        if (player.boostCounter==0):
+            player.boost=False
+            player.boostCounter=50
+            
+#grounded cue------------------------------------------------------------------------
+    
+        if ((player.bottom>284) and (player.hitsShape(ground)==True)):
+            grounded.visible=True
+            grounded.value='Stuck!'
+            grounded.centerX=player.centerX
+            grounded.centerY=player.centerY-30
+            
+        elif ((player.bottom>284) and (player.hitsShape(ground2)==True)):
+            grounded.visible=True
+            grounded.value='Stuck!'
+            grounded.centerX=player.centerX
+            grounded.centerY=player.centerY-30
+        
+        elif ((player.bottom>284) and (player.hitsShape(ground3)==True)):
+            grounded.visible=True
+            grounded.value='Stuck!'
+            grounded.centerX=player.centerX
+            grounded.centerY=player.centerY-30
+    
+        elif ((player.bottom>ground.top+60) and (player.hitsShape(ground)==False) and (player.hitsShape(ground2)==False) and (player.hitsShape(ground3)==False)):
+            grounded.visible=True
+            grounded.value='AHHHHHHHHHHHHHHHHHHHHHHHHHH!'
+            grounded.centerX=player.centerX
+            grounded.centerY=player.centerY-30
+        else:
+            grounded.visible=False
+            
+#Player Trail Function---------------------------------------------------------------
+        if (player.hitsShape(speedBooster)):
+            player.speed=True
+            player.speedTrailCounter=60
+            
+        if (player.speed==True):
+            playerSpeedTrail.visible=True
+            playerSpeedTrail.add(Rect(playerHead.centerX-12,playerHead.centerY-12,25,25,fill=gradient('darkSlateGrey','turquoise',start='bottom'),border='black'),
+            Line(playerLeg1.x1,playerLeg1.y1,playerLeg1.x2,playerLeg1.y2,lineWidth=3,fill=gradient('brown','saddleBrown','darkSlateGrey','darkSlateGrey',start='bottom')), 
+            Line(playerLeg2.x1,playerLeg2.y1,playerLeg2.x2,playerLeg2.y2,lineWidth=3,fill=gradient('brown','saddleBrown','darkSlateGrey','darkSlateGrey',start='bottom')))
+            player.speedTrailCounter-=1
+            player.centerY+=player.jumpY
+            for trail in playerSpeedTrail:
+                trail.opacity-=20
+                if (trail.opacity<=0):
+                    playerSpeedTrail.remove(trail)
+        if (player.speedTrailCounter==0):
+            player.speed=False
+            player.speedTrailCounter=60
+            playerSpeedTrail.visible=False
+            
+#Screen 1----------------------------------------------------------------------------
+            
+        if (caveExit.hitsShape(player)):
+            player.centerY=195
+            
+        if ((caveExit.visible==True) and (player.centerX<0)):
+            player.centerX=0
+            
+        if (player.centerX<=0) and (cannon.visible==True):
+            player.centerX=0
+        
+#Screen 2____________________________________________________________________________
+    
+        if ((caveExit.visible==True) and (player.centerX>400)):
+            player.centerX=0
+            player.centerY=195
+            caveExit.visible=False
+            caveExit.centerX=5000
+            caveExit.centerY=5000
+            advice.visible=False
+            advice_.visible=True
+            arrowRight.visible=False
+            sign.visible=False
+            
+            cannon.visible=True
+            cannon.centerX=270
+            cannon.centerY=195
+            
+            cannon2.visible=True
+            cannon2.centerX=270
+            cannon2.centerY=157
+            
+            cannon3.visible=True
+            cannon3.centerX=270
+            cannon3.centerY=119
+            
+            cannonBalls.visible=True
+            niceCannonBalls.visible=True
+    
+            cannonBalls2.visible=True
+            nCannonBalls2.visible=True
+    
+            cannonBalls3.visible=True
+            nCannonBalls3.visible=True
+        
+        if (cannon.visible==True) and (cannonBalls.counter>0) and (player.centerX>=250):
+            player.centerX=250
+            
+        if ((cannon.visible==True) and (platform.visible==True) and (player.centerX>=86)):
+            player.centerX=86
+            
+#Screen 3----------------------------------------------------------------------------
+        
+        if ((advice_.visible==True) and (cannonBalls.counter==0) and (player.centerX>400)):
+            wall.visible=True
+            wall2.visible=True
+            sign.visible=True
+            player.centerX=0
+            
+            advice_.visible=False
+            advice3.visible=True
+            advice3.centerX=190
+            advice3.centerY=360
+            
+            ground.centerX=-100
+            ground.centerY=500
+            ground3.centerY=500
+            ground3.cetnerY=500
+            ground2.centerY+=400
+            ground3.centerY+=400
+            ground.centerX-=350
+            
+            cannon.centerX=0
+            cannon.centerY=5000
+            cannon.visible=False
+            cannon2.centerX=0
+            cannon2.centerY=5000
+            cannon2.visible=False
+            cannon3.centerX=0
+            cannon3.centerY=5000
+            cannon3.visible=False
+            
+            trampoline1.centerX=90
+            trampoline1.centerY=390
+            trampoline1.width=30
+            trampoline1.visible=True
+            rims.centerX=90
+            rims.centerY=390
+            rims.width=28
+            rims.visible=True
+            trampoline2.centerY=140
+            trampoline2.centerX=113
+            trampoline2.visible=True
+            trampoline2.width=40
+            rims2.width=38
+            rims2.centerX=113
+            rims2.centerY=135
+            trampoline3.visible=True
+            trampoline3.width=60
+            trampoline3.centerX=305
+            trampoline3.centerY=200
+            rims3.width=58
+            rims3.centerX=305
+            rims3.centerY=200
+            trampoline4.visible=True
+            trampoline4.width=50
+            trampoline4.height=60
+            trampoline4.centerX=385
+            trampoline4.centerY=180
+            rims4.width=48
+            rims4.height=50
+            rims4.centerX=385
+            rims4.centerY=177
+                        
+            platform2.visible=True
+            platform2.centerX=0
+            platform2.centerY=220
+            platform3.visible=True
+            platform3.centerX=230
+            platform3.centerY=260
+            platform3.width=80
+            platform4.visible=True
+            platform4.width=128
+            platform4.centerX=339
+            platform4.centerY=300
+            
+            dangerBar.width=621
+            dangerBar.top=20
+            dangerBar.visible=True
+            dangerBar.centerX=90
+            dangerBar.rotateAngle=90
+            dangerBar2.centerX=230
+            dangerBar2.centerY=270
+            dangerBar2.visible=True
+            dangerBar4.visible=True
+            dangerBar4.centerY=260
+            dangerBar4.centerX=140
+            dangerBar4.width=350
+            dangerBar4.rotateAngle=90
+            dangerBar5.visible=True
+            dangerBar5.centerX=355
+            dangerBar5.centerY=140
+            dangerBar6.visible=True
+            dangerBar6.width=122
+            dangerBar6.centerX=150
+            dangerBar6.centerY=50
+
+        if (advice3.visible==True) and (player.centerY>600):
+            player.centerX=0
+            player.centerY=190
+        
+        if (advice3.visible==True) and (player.centerX<0):
+            player.centerX=0
+
+#screen 4----------------------------------------------------------------------------
+
+        if (advice3.visible==True) and (player.centerX>400) and (player.centerY>240):
+            player.centerX=0            
+            wall3.visible=True
+            wall.visible=False
+            wall2.visible=False
+            advice3.visible=False
+            advice2.visible=True
+            advice2_.visible=True
+            hiddenAdvice.counter=0
+            hiddenAdvice.visible=False
+            
+            gate.visible=True
+            gate.centerY=270
+            speedBooster.visible=True
+            speedBooster.centerY=288
+            speedBooster.centerX=132
+            speedBoost2.centerX=30
+            speedBoost2.centerY=93
+             
+            platform2.visible=True
+            platform2.centerX=385
+            platform2.centerY=80
+            platform4.visible=True
+            platform4.width=196
+            platform4.centerX=64
+            platform4.centerY=300
+            platform6.visible=True
+            platform6.centerX=20
+            platform6.centerY=240
+            platform7.visible=True
+            platform7.centerX=350
+            platform7.centerY=240
+            platform7.width=95
+            platform8.visible=True
+            platform8.centerX=240
+            platform8.centerY=210
+            platform8.width=20
+            platform9.visible=True
+            platform9.centerX=45
+            platform9.centerY=105
+            
+            dangerBar.visible=True
+            dangerBar.height=84
+            dangerBar.width=10
+            dangerBar.centerX=260
+            dangerBar.rotateAngle=90           
+            dangerBar.top=151
+            dangerBar2.width=240
+            dangerBar2.centerY=240
+            dangerBar2.centerX=185
+            dangerBar4.rotateAngle=0
+            dangerBar4.centerX=265
+            dangerBar4.centerY=105
+            dangerBar4.width=310
+            dangerBar5.centerX=210
+            dangerBar5.centerY=290
+            dangerBar5.rotateAngle=90
+            dangerBar6.width=90
+            dangerBar6.centerX=45
+            dangerBar6.centerY=230
+            
+            trampoline1.centerX=0
+            trampoline1.centerY=5000
+            trampoline1.visible=False
+            rims.centerX=0
+            rims.centerY=5000
+            rims.visible=False
+            trampoline2.centerY=0
+            trampoline2.centerX=5000
+            trampoline2.visible=False
+            rims2.centerX=0
+            rims2.centerY=5000
+            trampoline3.visible=False
+            trampoline3.centerX=0
+            trampoline3.centerY=5000
+            rims3.centerX=0
+            rims3.centerY=5000
+            trampoline4.visible=False
+            trampoline4.centerX=0
+            trampoline4.centerY=5000
+            rims4.centerX=0
+            rims4.centerY=5000
+            platform3.visible=False
+            platform3.centerX=0
+            platform3.centerY=5000
+
+        if ((advice2.visible==True) and (player.centerX>400) and (player.centerY>90)):
+            player.centerX=400
+            
+        if (player.centerX<0):
+            player.centerX=0
+        
+        if (player.centerY>=600):
+            player.centerX=15
+            player.centerY=270
+            
+        if (gate.visible==True):
+            advice2.value='What"s that behind the gate?'
+            advice2.centerX=94
+            advice2_.centerY=370
+            if (player.hitsShape(gate)):
+                player.left-=10
+        
+        if (gate.visible==False):
+            advice2.value='AH! BE CAREFUL WITH ALL THAT SPEED!'
+            advice2.centerX=120
+            advice2.centerY=350
+            advice2_.visible=False
+
+#screen 5----------------------------------------------------------------------------
+        
+        if ((advice2.visible==True) and (player.centerX>400) and (player.centerY<90)):
+            player.centerX=0
+            player.centerY=63
+            buildingExit.visible=True
+            advice2.visible=False
+            advice2_.visible=False
+            advice1.visible=True
+            advice1.toFront()
+            gate.visible=False
+            gate.centerY=5000
+            speedBooster.visible=False
+            speedBooster.centerY=5000
+            speedBooster.centerX=0
+            speedBoost2.centerX=5000
+            speedBoost2.centerY=0
+            
+            shrinker.visible=True
+            shrinker.centerX=103
+            shrinker.centerY=63
+            grower.visible=True
+            grower.centerX=244
+            grower.centerY=368
+            trampoline1.visible=True
+            trampoline1.centerX=260
+            trampoline1.centerY=208
+            rims.visible=True
+            rims.centerX=260
+            rims.centerY=205
+            rims.width=9
+            rims.height=10
+            trampoline1.width=20
+            trampoline1.height=20
+             
+            platform2.width=345
+            platform2.centerX=172
+            platform2.centerY=90
+            platform6.width=400            
+            platform6.centerX=200
+            platform6.centerY=5
+            platform9.centerX=45
+            platform9.centerY=395
+            platform9.width=400
+
+            platform8.centerX=260
+            platform8.centerY=220
+            platform7.centerX=350
+            platform7.centerY=155
+            platform7.width=100
+            
+            platform4.width=196
+            platform4.centerX=320
+            platform4.centerY=315
+            platform5.visible=True
+            platform5.width=320
+            platform5.centerX=160
+            platform5.centerY=270
+        
+            dangerBar.height=31
+            dangerBar.width=28
+            dangerBar.centerX=103
+            dangerBar.rotateAngle=90   
+            dangerBar.top=10
+            
+            dangerBar2.width=4
+            dangerBar2.centerY=72
+            dangerBar2.centerX=165
+            dangerBar2.rotateAngle=90
+            dangerBar2.height=15
+            dangerBar4.width=4
+            dangerBar4.centerX=213
+            dangerBar4.centerY=69
+            dangerBar4.rotateAngle=90            
+            dangerBar4.height=19
+            dangerBar5.rotateAngle=90            
+            dangerBar5.width=10            
+            dangerBar5.centerX=253
+            dangerBar5.centerY=108
+            dangerBar5.height=22
+            dangerBar7.width=340
+            dangerBar7.centerX=170
+            dangerBar7.centerY=100 
+            
+            dangerBar6.width=260
+            dangerBar6.centerX=270
+            dangerBar6.centerY=230
+            
+            dangerBar8.visible=True
+            dangerBar8.width=122
+            dangerBar8.centerX=61
+            dangerBar8.centerY=230
+            
+            dangerBar9.visible=True
+            dangerBar9.centerX=275
+            dangerBar9.top=320
+            dangerBar9.width=28
+            dangerBar9.height=26
+            ground2.centerX+=300
+
+        if ((player.shrunk==True) and (advice1.visible==True)):
+            advice1.value='Huh... We"re, small...'
+            advice1.size=10
+            
+        if (advice1.visible==True):
+            if (player.hitsShape(platform6)):
+                player.jumping=True
+                player.move=2
+                player.top+=10
+            if ((player.hitsShape(platform4)) and (player.centerY>315)):
+                player.jumping=True
+                player.move=2
+                player.top+=10
+            if ((player.hitsShape(platform5)) and (player.centerY>260)):
+                player.jumping=True
+                player.move=2
+                player.top+=10
+            
+        if ((advice1.visible==True) and (player.centerX>400) and (player.centerY<320)):
+            player.centerX=400
+            
+        if (advice1.visible==True) and (player.centerX<0):
+            player.centerX=0
+                
+#end Screen
+                
+        if ((advice1.visible==True) and (player.centerX>400) and (player.centerY>320)):
+            finalText.visible=True
+            app.background='darkSlateBlue'
+            nightime.visible=True
+            moon.visible=True
+            advice1.visible=False
+            wall3.visible=True
+            wall3.right=13
+            wall3.bottom=210
+            player.centerX=100
+            player.centerY=260
+            
+            family.visible=True
+            family.bottom=280
+            family.centerX=270
+            ground.top=280
+            ground.centerX=200
+            house.visible=True
+            house.centerX=380
+            
+            shrinker.centerX=5000
+            shrinker.centerY=0
+            grower.centerX=5000
+            grower.centerY=0
+            trampoline1.centerX=5000
+            trampoline1.centerY=0
+            rims.centerX=5000
+            rims.centerY=0
+            platform2.centerX=5000
+            platform2.centerY=0
+            platform6.centerX=5000
+            platform6.centerY=0
+            platform9.centerX=5000
+            platform9.centerY=0
+            platform8.centerX=5000
+            platform8.centerY=0
+            platform7.centerX=5000
+            platform7.centerY=0
+            platform4.centerX=5000
+            platform4.centerY=0
+            platform5.centerX=5000
+            platform5.centerY=0
+            dangerBar.centerX=5000
+            dangerBar2.centerY=0
+            dangerBar2.centerX=5000
+            dangerBar4.centerX=0
+            dangerBar4.centerY=5000
+            dangerBar5.centerX=0
+            dangerBar5.centerY=5000
+            dangerBar7.centerX=0
+            dangerBar7.centerY=5000
+            dangerBar6.centerX=0
+            dangerBar6.centerY=5000
+            dangerBar8.centerX=0
+            dangerBar8.centerY=5000
+            dangerBar9.visible=False
+            dangerBar9.centerX=0
+            app.stop()
+
+#Player Movement and Actions---------------------------------------------------------
+
+def onKeyHold(keys):
+    if (('left' in keys) or ('a' in keys)):
+        if ((grounded.visible==False) and (paused.visible==False)):
+            if (player.shrunk==False):
+                if (player.speed==False):
+                    if (player.rotateAngle==180):
+                        player.centerX+=3
+                    else:
+                        player.centerX-=3
+                else:
+                    player.centerX-=8
+            else:
+                player.centerX-=2
+
+    if (('right' in keys) or ('d' in keys)):
+        if ((grounded.visible==False) and (paused.visible==False)):
+            if (player.shrunk==False):
+                if (player.speed==False):
+                    if (player.rotateAngle==180):
+                        player.centerX-=3
+                    else:
+                        player.centerX+=3
+                else:
+                    player.centerX+=8
+            else:
+                player.centerX+=2
+                
+    if (('down' in keys) or ('s' in keys)):
+        if (paused.visible==False):
+            if (player.hitsShape(grower)==False):
+                if (player.hitsShape(shrinker)==False):
+                    if (player.shrunk==False):
+                        if (player.boost==False):
+                            if (player.rotateAngle==180):
+                                playerLeg1.rotateAngle=270
+                                playerLeg1.centerY=player.centerY-12
+                                playerLeg2.rotateAngle=90
+                                playerLeg2.centerY=player.centerY-12
+                            else:
+                                playerLeg1.rotateAngle=90
+                                playerLeg1.centerY=player.centerY+12
+                                playerLeg2.rotateAngle=-90
+                                playerLeg2.centerY=player.centerY+12
+
+def onKeyRelease(keys):
+    if (('down' in keys) or ('s' in keys)):
+        if (paused.visible==False):
+                    if (player.shrunk==False):
+                        if (player.boost==False):
+                            if (player.rotateAngle==180):
+                                player.centerY+=10       
+                                playerLeg1.rotateAngle=-180
+                                playerLeg1.bottom=playerHead.top
+                                playerLeg2.rotateAngle=180
+                                playerLeg2.bottom=playerHead.top
+                            else:    
+                                player.centerY-=10       
+                                playerLeg1.rotateAngle=0
+                                playerLeg1.top=playerHead.bottom
+                                playerLeg2.rotateAngle=0
+                                playerLeg2.top=playerHead.bottom
+                        
+def onKeyPress(key):
+    if ((key == 'up') or (key == 'w') and (key != 'space')):
+        if (paused.visible==False):
+            if (player.move<2):
+                player.jumping=True
+                player.jumpY= -5
+                player.move+=1
+                
+    if (key=='p'):
+        if (paused.visible==False):
+            paused.visible=True
+        else:
+            paused.visible=False
+    
+    if (gate.visible==True):
+        if (key=='e'):
+            gate.password=app.getTextInput('What Were The Colors Of The Trampolines From First To Last? ----, ------, -----, ---- (remember to use commas and spaces after each color!)')
+            gate.password=gate.password.lower()
+            if (gate.password=='blue, yellow, green, pink'):
+                gate.visible=False
+                
+def onMousePress(mouseX,mouseY):
+    if (pauseButton.contains(mouseX,mouseY)==True):
+        if (paused.visible==False):
+            paused.visible=True
+        else:
+            paused.visible=False
